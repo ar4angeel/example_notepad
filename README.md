@@ -1,7 +1,13 @@
-check todo/server.py \n
-i write the code in clean python and so that give you expirience to explore without requirements. \n
-i use the python 3.11 \n
+check todo/server.py
 
-python -m venv virt \n
-cd -> virt/Scripts \n
+i write the code in clean python and so that give you expirience to explore without requirements.
+
+i use the python 3.11
+
+
+
+python -m venv virt
+
+cd -> virt/Scripts
+
 activate (win -> .bat)
