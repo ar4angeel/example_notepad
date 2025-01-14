@@ -4,7 +4,7 @@ i write the code in clean python and so that give you expirience to explore with
 
 i use the python 3.11
 
-
+---
 
 python -m venv virt
 
