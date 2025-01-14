@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задержка курсора на изображении</title>
+    <style>
+        img {
+            width: 300px;
+            height: auto;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<img id="myImage" src="https://via.placeholder.com/300" alt="Пример изображения">
+
+<script>
+    const imgElement = document.getElementById('myImage');
+    let timer;
+
+    imgElement.addEventListener('mouseenter', () => {
+        timer = setTimeout(() => {
+            alert('Курсор задержан на изображении 8 секунд!');
+            // Здесь можно вызвать любую другую функцию
+        }, 8000); // 8000 миллисекунд = 8 секунд
+    });
+
+    imgElement.addEventListener('mouseleave', () => {
+        clearTimeout(timer); // Очищаем таймер, если курсор покинул элемент
+    });
+
+    // Для мобильных устройств
+    imgElement.addEventListener('touchstart', () => {
+        timer = setTimeout(() => {
+            alert('Палец задержан на изображении 8 секунд!');
+            // Здесь можно вызвать любую другую функцию
+        }, 8000);
+    });
+
+    imgElement.addEventListener('touchend', () => {
+        clearTimeout(timer); // Очищаем таймер, если палец убрали
+    });
+</script>
+
+</body>
+</html>

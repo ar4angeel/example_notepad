@@ -1,0 +1,27 @@
+* {background-color: azure;}
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a.active {
+    color: red; /* Цвет активной ссылки */
+}
+
+.horizontal-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.horizontal-list li {
+    display: inline;
+    margin-right: 20px;
+}

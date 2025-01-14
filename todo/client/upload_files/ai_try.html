@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест загрузки файлов</title>
+</head>
+<body>
+    <h1>Загрузка файлов</h1>
+    
+    <input type="file" id="fileInput" />
+    <button id="uploadButton">Загрузить файл</button>
+    <button id="listFilesButton">Показать список файлов</button>
+    
+    <h2>Список файлов:</h2>
+    <ul id="fileList"></ul>
+    Чтобы реализовать функциональность кнопки <button id="uploadButton">Загрузить файл</button>, нужно изменить JavaScript-код так, чтобы при нажатии на эту кнопку файл, выбранный в элементе <input>, отправлялся на сервер.
+
+Вот обновленный код с добавленной функциональностью для кнопки загрузки:
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const uploadButton = document.getElementById('uploadButton');
+        const fileList = document.getElementById('fileList');
+
+        // Функция для загрузки файла
+        function uploadFile(file) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload', true);
+            xhr.setRequestHeader('Filename', file.name);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log('Файл успешно загружен');
+                } else {
+                    console.error('Ошибка загрузки файла');
+                }
+            };
+            xhr.send(file);
+        }
+
+        // Функция для обработки изменения в input
+        function handleFileChange(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // Сохраняем выбранный файл в переменной для последующей загрузки
+                uploadButton.dataset.fileName = file.name; // Сохраняем имя файла
+            }
+        }
+
+        // Привязываем обработчик события к элементу input
+        fileInput.addEventListener('change', handleFileChange);
+
+        // Функция для загрузки файла по нажатию кнопки
+        uploadButton.addEventListener('click', () => {
+            const file = fileInput.files[0]; // Получаем файл из input
+            if (file) {
+                uploadFile(file); // Загружаем файл
+            } else {
+                console.error('Файл не выбран');
+            }
+        });
+
+        // Функция для получения списка файлов
+        function listFiles() {
+            fetch('/files')
+                .then(response => response.json())
+                .then(files => {
+                    fileList.innerHTML = ''; // Очищаем список перед добавлением новых элементов
+                    files.forEach(file => {
+                        const li = document.createElement('li');
+                        li.textContent = file;
+                        fileList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Ошибка при получении списка файлов:', error));
+        }
+
+        // Привязываем обработчик события к кнопке для получения списка файлов
+        document.getElementById('listFilesButton').addEventListener('click', listFiles);
+    </script>
+    Объяснение изменений:
+
+    Сохранение выбранного файла:
+        В функции handleFileChange мы сохраняем имя выбранного файла в uploadButton.dataset.fileName. Это позволяет нам отслеживать, какой файл был выбран.
+
+    Обработчик события для кнопки загрузки:
+        Мы добавили обработчик события click для кнопки uploadButton. При нажатии на кнопку мы получаем файл из элемента fileInput и вызываем функцию uploadFile(file) для его загрузки.
+        Если файл не выбран, выводится сообщение об ошибке в консоль.
+
+Теперь, когда пользователь выбирает файл и нажимает кнопку "Загрузить файл", файл будет отправлен на сервер.
+</body>
+</html>

@@ -1,0 +1,206 @@
+1. Определение класса
+
+Класс определяется с помощью ключевого слова class, за которым следует имя класса. Имя класса должно начинаться с заглавной буквы по соглашению.
+
+class MyClass {
+    // Конструктор
+    constructor(param1, param2) {
+        this.param1 = param1;
+        this.param2 = param2;
+    }
+
+    // Метод класса
+    myMethod() {
+        console.log(`Param1: ${this.param1}, Param2: ${this.param2}`);
+    }
+}
+
+2. Конструктор
+
+Метод constructor вызывается при создании нового экземпляра класса. Он может принимать параметры и инициализировать свойства объекта.
+3. Методы
+
+Методы определяются внутри класса без ключевого слова function. Они могут быть вызваны на экземплярах класса.
+4. Наследование
+
+Классы могут наследоваться от других классов с помощью ключевого слова extends. При этом можно использовать super() для вызова конструктора родительского класса.
+
+class ParentClass {
+    constructor(name) {
+        this.name = name;
+    }
+
+    greet() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+}
+
+class ChildClass extends ParentClass {
+    constructor(name, age) {
+        super(name); // Вызов конструктора родительского класса
+        this.age = age;
+    }
+
+    introduce() {
+        console.log(`I am ${this.age} years old.`);
+    }
+}
+
+const child = new ChildClass('Alice', 10);
+child.greet(); // Hello, my name is Alice
+child.introduce(); // I am 10 years old.
+
+5. Статические методы
+
+Статические методы определяются с помощью ключевого слова static и могут вызываться на самом классе, а не на экземплярах.
+
+class MyClass {
+    static staticMethod() {
+        console.log('This is a static method.');
+    }
+}
+
+MyClass.staticMethod(); // This is a static method.
+
+
+6. Геттеры и сеттеры
+
+Геттеры и сеттеры позволяют определять методы для получения и установки значений свойств.
+
+class MyClass {
+    constructor(value) {
+        this._value = value; // Приватное свойство
+    }
+
+    get value() {
+        return this._value;
+    }
+
+    set value(newValue) {
+        this._value = newValue;
+    }
+}
+
+const obj = new MyClass(10);
+console.log(obj.value); // 10
+obj.value = 20;
+console.log(obj.value); // 20
+
+Пример полного класса
+
+Вот пример класса с конструктором, методами, наследованием и статическим методом:
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} makes a noise.`);
+    }
+}
+
+class Dog extends Animal {
+    speak() {
+        console.log(`${this.name} barks.`);
+    }
+}
+
+const dog = new Dog('Rex');
+dog.speak(); // Rex barks.
+
+
+curl -X POST http://localhost:8000/upload -H "Filename: test.txt" --data-binary @path/to/your/file
+
+
+const data = new FormData();
+data.append('file', fileInput.files[0]);
+
+console.log('Sending POST request to /upload with data:', data);
+
+fetch('/upload', {
+    method: 'POST',
+    body: data,
+    headers: {
+        'Filename': 'your_file_name.txt'
+    }
+})
+.then(response => response.text())
+.then(result => console.log(result))
+.catch(error => console.error('Error:', error));
+
+
+class FileUploader {
+    constructor(url) {
+        this.url = url; // URL для отправки запроса
+        this.data = new FormData(); // Создаем новый объект FormData
+    }
+
+    // Метод для добавления файла
+    addFile(file) {
+        this.data.append('file', file);
+    }
+
+    // Метод для отправки POST-запроса
+    send(filename) {
+        // Устанавливаем заголовок для имени файла
+        const headers = new Headers();
+        headers.append('Filename', filename);
+
+        console.log('Sending POST request to', this.url, 'with data:', this.data);
+
+        return fetch(this.url, {
+            method: 'POST',
+            body: this.data,
+            headers: headers
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(result => {
+            console.log(result);
+            return result; // Возвращаем результат для дальнейшей обработки
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+// Пример использования класса
+const fileInput = document.querySelector('input[type="file"]'); // Предполагаем, что у вас есть элемент input для выбора файла
+const uploader = new FileUploader('/upload');
+
+// Добавляем файл из input
+if (fileInput.files.length > 0) {
+    uploader.addFile(fileInput.files[0]);
+    uploader.send('your_file_name.txt'); // Отправляем файл с указанным именем
+} else {
+    console.log('No file selected.');
+}
+
+
+// Создаем новый объект FormData
+const data = new FormData();
+
+// Добавляем текстовое поле
+data.append('username', 'JohnDoe');
+
+// Добавляем файл (предполагается, что у вас есть элемент input с type="file")
+const fileInput = document.querySelector('input[type="file"]');
+if (fileInput.files.length > 0) {
+    data.append('profilePicture', fileInput.files[0]);
+}
+
+// Теперь data можно использовать для отправки запроса
+fetch('/submit', {
+    method: 'POST',
+    body: data
+})
+.then(response => response.json())
+.then(result => console.log(result))
+.catch(error => console.error('Error:', error));
+

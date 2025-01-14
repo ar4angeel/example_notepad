@@ -1,0 +1,29 @@
+* {outline: 1.4px solid}
+table {
+    width: 100%;
+    border-collapse: separate; /* Разделяем границы ячеек */
+    border-spacing: 0 20px; /* Отступы между строками (вертикальный отступ) */
+    color: black;
+}
+
+thead {
+    background-color: green; /* Цвет фона для thead */
+}
+
+td, th {
+    padding: 20px;
+    text-align: center;
+    background-clip: padding-box;
+}
+
+/* Применяем закругление только к первой и последней ячейке в строке */
+td:first-child, th:first-child {
+    border-radius: 10px 0 0 10px; /* Закругление улов с левой стороны */
+    background-color: red;
+}
+  
+td:last-child, th:last-child {
+    border-radius: 0 10px 10px 0; /* Закругление улов с правой стороны */
+    background-color: red;
+}
+

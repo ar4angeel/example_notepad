@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пересечение фигур</title>
+    <link rel="stylesheet" href="drag.css">
+</head>
+<body>
+    <!-- <canvas id="canvas" width="400" height="400"></canvas> -->
+    <div>
+        <div id="obj">
+            <img src="drag_img" alt="drag_img" width="150" height="150">
+        </div>
+        <div class="btn_div">
+            <input type="button" value="Div unlock" id="btn2unHide">
+            <div>
+                <input type="button" value="Button create" id="btn2cBtn">
+                <input type="button" value="Button delete" id="btn2delBtn">
+            </div>
+            <input type="button" value="test btn">
+        </div>
+        <div id="hideID" class="hideClass"></div>
+    </div>
+    <div id="DragableButtonMain">
+        <input type="button" value="test getElement" id="printGetElement">
+        <div>
+            <div class="testElements"></div>
+            <div class="testElements"></div>
+            <div class="testElements"></div>
+            <div class="testElements"></div>
+            <div class="testElements"></div>
+        </div>
+        <div id="startPointDiv"></div>
+        <div id="containerPointDiv"></div>
+    </div>
+    <!-- <script src="drag.js"></script> -->
+    <script src="learn_grag.js"></script>
+    <script src="drag_btn.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+#myDiv {
+    color: black;
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 200px; /* Центрирование текста по вертикали */
+    margin: 20px;
+}

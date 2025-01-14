@@ -1,0 +1,31 @@
+/* canvas {
+    border: 1px solid black;
+} */
+
+.hideDiv {
+    display: none;
+}
+
+.btn_div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: fit-content;
+    align-items: center;
+}
+
+#DragableButtonMain {
+    margin-top: 10px;
+}
+
+#printGetElement {
+    margin-bottom: 10px;
+}
+
+#startPointDiv {
+    outline: 2px solid greenyellow;
+}
+
+#containerPointDiv {
+    outline: 2px solid greenyellow;
+}

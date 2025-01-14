@@ -1,0 +1,65 @@
+* {font-family: 'Times New Roman', Times, serif;}
+
+table tr td {
+    /* outline: 1px solid black; */
+    color: black;
+}
+
+
+
+.fixed-left {
+    color: darkgrey;
+    position: fixed; /* Фиксированное позиционирование */
+    left: 0; /* Прикрепить к левой стороне */
+    top: 0; /* Можно задать отступ сверху */
+    width: 60px; /* Ширина элемента */
+    height: 100%; /* Высота элемента */
+    background-color: beige; /* Цвет фона */
+    border-right: 1px solid #ccc; /* Граница справа */
+    padding-right: 10px;
+}
+
+.img-container {
+    width: max-content;
+    height: max-content;
+}
+
+.img-container {
+    position: relative;
+    padding: 4.5px;
+    border-bottom: 2px solid transparent;
+}
+
+.img-container::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    width: 85%;
+    height: 5.5px;
+    background-color: #19323F;
+    border-radius: 20px;
+}
+
+.add {
+    position: relative;
+    padding: 11px 0px 0px 7px;
+    border-top: 2px solid transparent;
+    left: -2px;
+}
+
+.add::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    width: 85%;
+    height: 5.5px;
+    background-color: #19323F;
+    border-radius: 20px;
+}
+
+.simple {
+    margin-left: 90px; 
+    padding: 10px;
+}

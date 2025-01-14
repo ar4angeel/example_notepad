@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выпадающий список</title>
+    <link rel="stylesheet" href="examples.css">
+</head>
+<body>
+
+  <nav role="navigation" class="primary-navigation">
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li>
+            <a href="#">Work &dtrif;</a>
+            <ul class="dropdown">
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Illustration</a></li>
+                <li><a href="#">Iconography</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Сервисы</a>
+            <ul class="services">
+                <li>Гос Услуги</li>
+                <li>Мин Культ</li>
+                <li>Мин Здрав</li>
+                <li>Мин Обороны</li>
+            </ul>
+          </li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+      </ul>
+  </nav>
+
+    <h1>Выберите фрукт</h1>
+    <form>
+        <label for="fruits">Фрукты:</label>
+        <select id="fruits" name="fruits">
+            <option value="apple">Яблоко</option>
+            <option value="banana">Банан</option>
+            <option value="orange">Апельсин</option>
+            <option value="grape">Виноград</option>
+            <option value="kiwi">Киви</option>
+        </select>
+        <!-- <input type="submit" value="Отправить"> -->
+    </form>
+
+    <script src="examples.js"></script>
+</body>
+</html>
+
+<!--
+
+<nav role="navigation" class="primary-navigation">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Work &dtrif;</a>
+      <ul class="dropdown">
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">Web Design</a></li>
+        <li><a href="#">Illustration</a></li>
+        <li><a href="#">Iconography</a></li>
+      </ul>
+    </li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+
+-->
